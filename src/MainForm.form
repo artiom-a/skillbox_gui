@@ -7,10 +7,6 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="7c83e" class="javax.swing.JTextArea" binding="textArea">
-        <constraints border-constraint="Center"/>
-        <properties/>
-      </component>
       <grid id="d2ce" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
         <constraints border-constraint="South"/>
         <properties/>
@@ -22,10 +18,11 @@
               <text value="Очистить"/>
             </properties>
           </component>
-          <component id="6ee8c" class="javax.swing.JButton" binding="countButton">
+          <component id="6ee8c" class="javax.swing.JButton" binding="collapseButton">
             <constraints/>
             <properties>
-              <text value="Посчитать"/>
+              <actionCommand value="Объединить"/>
+              <text value="Объединить"/>
             </properties>
           </component>
         </children>
@@ -39,6 +36,99 @@
       <hspacer id="4d873">
         <constraints border-constraint="North"/>
       </hspacer>
+      <grid id="bd1ef" binding="fioFieldPanel" layout-manager="GridBagLayout">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <clientProperties>
+          <html.disable class="java.lang.Boolean" value="false"/>
+        </clientProperties>
+        <border type="none"/>
+        <children>
+          <component id="3315a" class="javax.swing.JTextField" binding="firstNameArea">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <minimumSize width="100" height="30"/>
+              <name value="Имя"/>
+              <preferredSize width="200" height="30"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="87269" class="javax.swing.JTextField" binding="lastNameArea">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <focusCycleRoot value="false"/>
+              <horizontalAlignment value="10"/>
+              <minimumSize width="200" height="30"/>
+              <opaque value="true"/>
+              <preferredSize width="200" height="30"/>
+              <visible value="true"/>
+            </properties>
+            <clientProperties>
+              <html.disable class="java.lang.Boolean" value="false"/>
+            </clientProperties>
+          </component>
+          <component id="7ad3c" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <name value="Имя"/>
+              <text value="Имя"/>
+            </properties>
+          </component>
+          <component id="59f09" class="javax.swing.JTextField" binding="middleNameArea">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <minimumSize width="200" height="30"/>
+              <preferredSize width="200" height="30"/>
+            </properties>
+          </component>
+          <component id="2873a" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <name value="Фамилия"/>
+              <text value="Фамилия"/>
+            </properties>
+          </component>
+          <component id="66d87" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <name value="Отчество"/>
+              <text value="Отчество"/>
+            </properties>
+          </component>
+          <component id="43b33" class="javax.swing.JTextArea" binding="textArea">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <preferredSize width="200" height="100"/>
+              <visible value="false"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>

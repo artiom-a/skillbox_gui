@@ -1,13 +1,16 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 import java.beans.PropertyChangeListener;
 
 public class MainForm {
     private JPanel mainPanel;
     private JTextArea textArea;
-    private JButton countButton;
+    private JButton collapseButton;
     private JButton clearButton;
+    private JTextField firstNameArea;
+    private JTextField lastNameArea;
+    private JTextField middleNameArea;
+    private JPanel fioFieldPanel;
 
     public MainForm() {
         clearButton.addActionListener(new Action() {
@@ -43,10 +46,12 @@ public class MainForm {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                textArea.setText("");
+                firstNameArea.setText("");
+                lastNameArea.setText("");
+                middleNameArea.setText("");
             }
         });
-        countButton.addActionListener(new Action() {
+        collapseButton.addActionListener(new Action() {
             @Override
             public Object getValue(String key) {
                 return null;
@@ -79,64 +84,36 @@ public class MainForm {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                String text = textArea.getText();
-                int length = text.length();
-                JOptionPane.showMessageDialog(
-                        mainPanel,
-                        length + " символов",
-                        "Длина текста",
-                        JOptionPane.PLAIN_MESSAGE
-                );
-            }
-        });
+                String firstName = firstNameArea.getText();
+                String lastName = lastNameArea.getText();
+                String middleName = middleNameArea.getText();
+                if (collapseButton.getText().equals("Объединить")) {
+                    if (firstName.equals("") || lastName.equals("") || middleName.equals("")) {
+                        JOptionPane.showMessageDialog(mainPanel, "Введите данные в поля ввода", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else {
+//                    JOptionPane.showMessageDialog(mainPanel, String.format("%s %s %s", lastName, firstName, middleName), "ФИО", JOptionPane.PLAIN_MESSAGE);
+                        textArea.setText(String.format("%s %s %s", lastName, firstName, middleName));
+                        textArea.setVisible(true);
+                        collapseButton.setText("Разделить");
+                    }
+                } else {
+                    String[] fioArray = textArea.getText().split(" ");
+                    if (fioArray.length == 3) {
+                        firstNameArea.setText(fioArray[1]);
+                        lastNameArea.setText(fioArray[0]);
+                        middleNameArea.setText(fioArray[2]);
+                        textArea.setVisible(false);
+                        collapseButton.setText("Объединить");
+                    } else {
+                        JOptionPane.showMessageDialog(mainPanel, "Ошибка", "Ошибка ввода", JOptionPane.ERROR_MESSAGE);
+                    }
 
-        textArea.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                textArea.setBackground(Color.blue);
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
-        textArea.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                if(e.getKeyChar()=='6'){
-                    textArea.setText(textArea.getText() + " лошади");
                 }
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-
             }
         });
     }
 
-    public JPanel getMainPanel(){
+    public JPanel getMainPanel() {
         return mainPanel;
     }
 }
